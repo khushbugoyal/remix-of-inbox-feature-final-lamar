@@ -1,0 +1,121 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-brand: var(--brand);
+  --color-dark: var(--dark);
+  --color-hairline: var(--hairline);
+  --color-outline: var(--outline);
+  --color-ai: var(--ai);
+  --color-ai-ink: var(--ai-ink);
+  --color-act: var(--act);
+  --color-act-pill: var(--act-pill);
+  --color-act-ink: var(--act-ink);
+  --color-ref: var(--ref);
+  --color-ref-ink: var(--ref-ink);
+  --color-ok: var(--ok);
+  --color-ok-ink: var(--ok-ink);
+  --color-ai-icon: var(--ai-icon);
+  --color-sel: var(--sel);
+  --color-danger: var(--danger);
+  --color-switch-on: var(--switch-on);
+  --color-muted-icon: var(--muted-icon);
+  --color-link-soft: var(--link-soft);
+  --color-scrim: var(--scrim);
+}
+
+:root {
+  --radius: 0.75rem;
+  --page: oklch(0.960 0.007 295.4);
+  --ink: oklch(0.203 0.030 292.7);
+  --ink-2: oklch(0.471 0.039 288.6);
+  --brand: oklch(0.539 0.166 290.1);
+  --dark: oklch(0.359 0.050 298.1);
+  --hairline: oklch(0.947 0.011 297.6);
+  --outline: oklch(0.850 0.018 289.6);
+  --ai: oklch(0.915 0.043 300.3);
+  --ai-ink: oklch(0.408 0.142 288.7);
+  --act: oklch(0.979 0.031 92.9);
+  --act-pill: oklch(0.951 0.060 93.8);
+  --act-ink: oklch(0.452 0.092 88.2);
+  --ref: oklch(0.938 0.029 271.1);
+  --ref-ink: oklch(0.446 0.154 266.6);
+  --ok: oklch(0.948 0.029 156.6);
+  --ok-ink: oklch(0.469 0.108 151.4);
+  --ai-icon: oklch(0.677 0.164 268.0);
+  --sel: oklch(0.968 0.010 299.2);
+  --danger: oklch(0.500 0.182 29.5);
+  --switch-on: oklch(0.738 0.124 155.4);
+  --muted-icon: oklch(0.642 0.033 287.5);
+  --link-soft: oklch(0.825 0.080 295.0);
+  --scrim: oklch(0.203 0.030 292.7 / 0.35);
+
+  --background: var(--page);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--brand);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(1 0 0);
+  --secondary-foreground: var(--brand);
+  --muted: var(--page);
+  --muted-foreground: var(--ink-2);
+  --accent: var(--sel);
+  --accent-foreground: var(--ink);
+  --destructive: var(--danger);
+  --destructive-foreground: oklch(1 0 0);
+  --border: var(--hairline);
+  --input: var(--outline);
+  --ring: var(--brand);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@utility btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors whitespace-nowrap h-10 px-6 text-sm bg-brand text-primary-foreground hover:opacity-90; }
+@utility btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors whitespace-nowrap h-10 px-6 text-sm bg-card text-brand shadow-[inset_0_0_0_1px_var(--outline)] hover:bg-sel; }
+@utility btn-chip { @apply inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors whitespace-nowrap h-8 px-4 text-[13px] bg-card text-brand shadow-[inset_0_0_0_1px_var(--outline)] hover:bg-sel; }
+@utility btn-text { @apply text-[13px] font-medium text-brand hover:underline; }
+@utility pane { @apply bg-card rounded-[24px]; }
+@utility pill-ai { @apply inline-flex w-fit items-center gap-1 rounded-full bg-ai text-ai-ink text-[9px] font-bold px-2 py-0.5 tracking-wide; }
+@utility ai-tile { @apply flex items-center justify-center bg-card shadow-[inset_0_0_0_1px_var(--ai)]; }
